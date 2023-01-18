@@ -27,15 +27,12 @@ function renderPostId(postArr, p) {
 renderPostId(data, elSelect);
 
 
+
+//
 // for render post
 // 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
+
+
 
 const renderData = (array, element = elList) => {
     element.innerHTML = "";
@@ -54,6 +51,9 @@ const renderData = (array, element = elList) => {
                         ${post.body}
                     </p>
                     <a href="#" class="card-link">${post.email}</a>
+                    <button data-id="${post.id}" class="btn mt-5 btn-danger  d-grid btn-info delete-btn"> Delete </button>
+
+                    
                 </div>
             
             `;
@@ -68,12 +68,9 @@ const renderData = (array, element = elList) => {
 renderData(data)
 
 
+
+//
 // search
-
-
-
-
-
 //
 
 elSearch.addEventListener('input', (i) => {
@@ -87,4 +84,28 @@ elSearch.addEventListener('input', (i) => {
         }
     });
     renderData(array);
+});
+
+
+//
+// button
+//
+
+
+elList.addEventListener("click", (evt) => {
+    const target = evt.target;
+    console.log(target);
+
+    if (target.className.includes("delete-btn")) {
+        let newPost = [];
+        const id = Number(target.dataset.id);
+
+        data.forEach((post) => {
+            if (post.id !== id) {
+                newPost.push(post);
+            }
+        });
+        data = newPost;
+        renderData(data);
+    }
 });
