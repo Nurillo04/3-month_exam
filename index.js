@@ -39,7 +39,7 @@ const renderData = (array, element = elList) => {
 
     array.forEach((post) => {
             const newItem = document.createElement('li');
-            newItem.className = "mb-3 ms-3 card w-25"
+            newItem.className = "mb-3 ms-3 card w-25 shadow"
             const newCard = document.createElement('div');
             newCard.className = "card-body ";
 
@@ -51,7 +51,7 @@ const renderData = (array, element = elList) => {
                         ${post.body}
                     </p>
                     <a href="#" class="card-link">${post.email}</a>
-                    <button data-id="${post.id}" class="btn mt-5 btn-danger  d-grid btn-info delete-btn"> Delete </button>
+                    <button data-id="${post.id}" class="btn mt-5 btn-danger shadow  d-grid btn-info delete-btn"> Delete </button>
 
                     
                 </div>
@@ -107,5 +107,31 @@ elList.addEventListener("click", (evt) => {
         });
         data = newPost;
         renderData(data);
+    }
+});
+
+
+
+//
+//   filter
+//
+
+
+
+elSelect.addEventListener("change", () => {
+    const opt = elSelect.value;
+
+    let filteredPost = [];
+
+    if (opt == "All") {
+        renderData(data);
+    } else {
+        for (let i = 0; i < data.length; i++) {
+            const element = data[i];
+            if (element.postId == opt) {
+                filteredPost.push(element);
+            }
+        }
+        renderData(filteredPost);
     }
 });
