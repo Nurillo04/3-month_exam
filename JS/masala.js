@@ -26,6 +26,7 @@
 // let num1 = 123454321;
 // let num2 = 345645;
 // let num3 = 987789;
+
 // let num4 = 555555;
 // let num5 = 852258;
 // let num6 = 15951;
@@ -71,3 +72,30 @@
 //         console.log(newArray);
 //     }
 // }
+
+
+
+
+//
+//                    1-masala      
+//                   .                     // 
+
+
+
+// function minWord(maxWord) {
+//     console.log(maxWord);
+//     const array = maxWord.split('')
+//     console.log(array);
+//     let max = array[0];
+//     for (let i = 0; i < array.length; i++) {
+//         console.log(array[i].length);
+//         if (array[i] == max) {
+//             max = array[i]
+//         }
+
+//     }
+//     console.log(max);
+
+// }
+// const newWord = 'Mexanizatsiyalashtiraolmayotganingizdandurda';
+// minWord(newWord);
